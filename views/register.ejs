@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css" />
+    <title><%= title %></title>
+</head>
+
+<body>
+    
+    <div class="container">
+        <form action="/register" method="post">
+            <div>
+                <h2>Registro</h2>
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" name="nome" id="nome" placeholder="Informe o nome" maxlength="30" required onblur="this.value=this.value.trim()" 
+                    value="<% if(nome !== '') { %><%=nome%><% } %>" />
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="Informe o e-mail" maxlength="50" required onblur="this.value=this.value.trim()"
+                    value="<% if(email !== '') { %><%=email%><% } %>" />
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" name="password" id="password" placeholder="Informe a senha" maxlength="60" required />
+                </div>
+                <div>
+                    <input type="submit" value="Registrar" />
+                </div>
+                <a href="/login">
+                    <h4 style="text-align: center; margin-top: 30px;">Possui conta? Fazer login</h4>
+                </a>
+                <div>                    
+                    <% if(msg !== '') { %>
+                        <div class="messages">
+                            <%= msg %>
+                        </div>                        
+                    <% } %>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

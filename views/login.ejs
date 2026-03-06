@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css" />
+    <title><%= title %></title>
+</head>
+
+<body>
+    
+    <div class="container">
+        <form action="/login" method="post">
+            <div>
+                <h2>Login</h2>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="Informe o e-mail" maxlength="50" required onblur="this.value=this.value.trim()"
+                    value="<% if(email !== '') { %><%=email%><% } %>" />
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" name="password" id="password" placeholder="Informe a senha" required />
+                </div>
+                <div>
+                    <input type="submit" value="Logar" />
+                </div>                
+            </div>
+            <a href="/register">
+                <h4>Sem conta? Registre-se aqui</h4>
+            </a>
+            <div>                    
+                <% if(msg !== '') { %>
+                    <div class="messages">
+                        <%= msg %>
+                    </div>                        
+                <% } %>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
